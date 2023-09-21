@@ -1,3 +1,3 @@
 # YeetChess
-yeet chess \
+yeet chess\ 
 dat chess do be yeeting tho 🥶🥶🥶🥶
