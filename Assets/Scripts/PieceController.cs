@@ -74,6 +74,7 @@ public class PieceController : MonoBehaviour
                 {
                     GameController.SelectPiece(this.gameObject);
                 }
+                // TODO: edit check before eat logic
                 else if ((this.tag == "White" && GameController.SelectedPiece.tag == "Black") || (this.tag == "Black" && GameController.SelectedPiece.tag == "White"))
                 {
                     GameController.SelectedPiece.GetComponent<PieceController>().MovePiece(this.transform.position);

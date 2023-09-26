@@ -76,6 +76,7 @@ public class GameController : MonoBehaviour
                 {
                     piece.GetComponent<PieceController>().DoubleStep = false;
                 }
+                // TODO: edit king's logic
                 else if (piece.name.Contains("King"))
                 {
                     kingIsInCheck = piece.GetComponent<PieceController>().IsInCheck(piece.position);
