@@ -127,6 +127,7 @@ public class PieceController : MonoBehaviour
             this.newPositionX = newPosition;
             MovingY = true; // Start movement
 
+            // TODO: track pieces before destroy
             Destroy(encounteredEnemy);
             return true;
         }
