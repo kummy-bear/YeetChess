@@ -362,6 +362,7 @@ public class PieceController : MonoBehaviour
 
     public bool IsInCheck(Vector3 potentialPosition)
     {
+        // TODO: skip this part
         bool isInCheck = false;
 
         // Temporarily move piece to the wanted position
