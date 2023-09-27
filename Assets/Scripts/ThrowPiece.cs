@@ -1,54 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
-using UnityEngine.EventSystems;
 
-public class CylinderSpawner : MonoBehaviour
+public class ObjectThrower : MonoBehaviour
 {
-    public GameObject cylinderPrefab;
-    private ARRaycastManager raycastManager;
-    private ARSessionOrigin arSessionOrigin;
+    public GameObject objectToThrow;
+    public float throwForce = 10f;
+    private Camera arCamera;
 
-    private void Awake()
+    private void Start()
     {
-        raycastManager = FindObjectOfType<ARRaycastManager>();
-        arSessionOrigin = FindObjectOfType<ARSessionOrigin>();
+        arCamera = Camera.main; // Get the AR camera
     }
 
     private void Update()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-            {
-                SpawnCylinder();
-            }
+            ThrowObject();
         }
     }
 
-    private void SpawnCylinder()
+    private void ThrowObject()
     {
-        Vector3 screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0));
-        List<ARRaycastHit> hits = new List<ARRaycastHit>();
-        raycastManager.Raycast(screenCenter, hits, TrackableType.PlaneWithinPolygon);
+        // Create the object clone
+        GameObject objClone = Instantiate(objectToThrow, arCamera.transform.position, arCamera.transform.rotation);
 
-        if (hits.Count > 0)
-        {
-            Pose hitPose = hits[0].pose;
-            Vector3 spawnPosition = hitPose.position;
+        // Get the rigidbody
+        Rigidbody rb = objClone.GetComponent<Rigidbody>();
 
-            // Spawn the cylinder
-            GameObject cylinder = Instantiate(cylinderPrefab, spawnPosition, Quaternion.identity);
-            
-            // Calculate the force direction towards the AR camera
-            Vector3 cameraPosition = arSessionOrigin.camera.transform.position;
-            Vector3 forceDirection = (cameraPosition - spawnPosition).normalized;
-            
-            // Apply a force to the cylinder
-            Rigidbody cylinderRigidbody = cylinder.GetComponent<Rigidbody>();
-            cylinderRigidbody.AddForce(forceDirection * 500f); // Adjust force strength as needed
-        }
+        // Apply force to throw the object forward
+        rb.AddForce(arCamera.transform.forward * throwForce, ForceMode.Impulse);
     }
 }

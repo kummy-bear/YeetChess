@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Camera: {fileID: 22732920}
   m_OriginBaseGameObject: {fileID: 58851774}
   m_CameraFloorOffsetObject: {fileID: 0}
-  m_RequestedTrackingOriginMode: 1
+  m_RequestedTrackingOriginMode: 0
   m_CameraYOffset: 1.1176
 --- !u!4 &58851780
 Transform:
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e688283c550c6e94692c596f83908c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 7858151673583630177, guid: 27f50b01c5ce57848817786221dd0a54,
+  prefabObject: {fileID: 7858151673583630177, guid: 27f50b01c5ce57848817786221dd0a54,
     type: 3}
 --- !u!1 &653950742
 GameObject:
@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae49911abc5a6b4283e13c452c48b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwObject: {fileID: 8144073075066603076, guid: f7dcee1265e2ebf4888ddfa17ef5404a,
+  throwObject: {fileID: 1084830076295787680, guid: f7dcee1265e2ebf4888ddfa17ef5404a,
     type: 3}
 --- !u!1 &1103857011
 GameObject:
