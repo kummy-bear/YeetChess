@@ -58,10 +58,10 @@ public class GameController : MonoBehaviour
 
     public void EndTurn()
     {
-        // TODO: ignore
+        // TO-DO: ignore
         // bool kingIsInCheck = false;
 
-        // TODO: change false -> true
+        // TO-DO: change false -> true
         bool hasValidMoves = true;
 
         WhiteTurn = !WhiteTurn;
@@ -70,7 +70,7 @@ public class GameController : MonoBehaviour
         {
             foreach (Transform piece in WhitePieces.transform)
             {
-                // TODO: ignore
+                // TO-DO: ignore
                 // if (hasValidMoves == false && HasValidMoves(piece.gameObject))
                 // {
                 //     hasValidMoves = true;
@@ -80,7 +80,7 @@ public class GameController : MonoBehaviour
                 {
                     piece.GetComponent<PieceController>().DoubleStep = false;
                 }
-                // TODO: edit king's logic
+                // TO-DO: edit king's logic
                 // IGNORE CHECK
                 // else if (piece.name.Contains("King"))
                 // {
@@ -92,7 +92,7 @@ public class GameController : MonoBehaviour
         {
             foreach (Transform piece in BlackPieces.transform)
             {
-                // TODO: ignore
+                // TO-DO: ignore
                 // if (hasValidMoves == false && HasValidMoves(piece.gameObject))
                 // {
                 //     hasValidMoves = true;
@@ -102,7 +102,7 @@ public class GameController : MonoBehaviour
                 {
                     piece.GetComponent<PieceController>().DoubleStep = false;
                 }
-                // TODO: edit king's logic
+                // TO-DO: edit king's logic
                 // IGNORE CHECK
                 // else if (piece.name.Contains("King"))
                 // {
@@ -111,8 +111,7 @@ public class GameController : MonoBehaviour
             }
         }
 
-        // TODO: edit 
-        // IGNORE 
+        // TO-DO: ignore
         // if (hasValidMoves == false)
         // {
         //     if (kingIsInCheck == false)
@@ -126,7 +125,7 @@ public class GameController : MonoBehaviour
         // }
     }
 
-    // TODO: ignore
+    // TO-DO: ignore
     // bool HasValidMoves(GameObject piece)
     // {
     //     PieceController pieceController = piece.GetComponent<PieceController>();
@@ -143,13 +142,13 @@ public class GameController : MonoBehaviour
     //     return false;
     // }
 
-    // TODO: ignore
+    // TO-DO: ignore
     // void Stalemate()
     // {
     //     Debug.Log("Stalemate!");
     // }
 
-    // TODO: ignore
+    // TO-DO: ignore
     // void Checkmate()
     // {
     //     Debug.Log("Checkmate!");

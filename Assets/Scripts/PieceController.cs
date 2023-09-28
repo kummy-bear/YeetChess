@@ -74,7 +74,7 @@ public class PieceController : MonoBehaviour
                 {
                     GameController.SelectPiece(this.gameObject);
                 }
-                // TODO: edit check before eat logic
+                // TO-DO: edit check before capture logic
                 else if ((this.tag == "White" && GameController.SelectedPiece.tag == "Black") || 
                 (this.tag == "Black" && GameController.SelectedPiece.tag == "White")) ||
                 (this.tag == GameController.SelectedPiece.tag)
@@ -129,7 +129,7 @@ public class PieceController : MonoBehaviour
             this.newPositionX = newPosition;
             MovingY = true; // Start movement
 
-            // TODO: track pieces before destroy
+            // TO-DO: track pieces before destroy
             if (GameController.WhiteTurn)
             {
                 CaptureData.destroyedByWhite.Add(encounteredEnemy);
@@ -163,7 +163,7 @@ public class PieceController : MonoBehaviour
             // If the path is 1 square away in any direction
             if (Mathf.Abs(oldPosition.x - newPosition.x) <= 1 && Mathf.Abs(oldPosition.y - newPosition.y) <= 1)
             {
-                // TODO: ignore & change isValid to true
+                // TO-DO: ignore & change isValid to true
                 // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
                 // {
                 //     isValid = true;
@@ -179,7 +179,7 @@ public class PieceController : MonoBehaviour
                     if (rook.name.Contains("Rook") && rook.GetComponent<PieceController>().moved == false &&
                         CountPiecesBetweenPoints(oldPosition, rook.transform.position, Direction.Horizontal) == 0)
                     {
-                        // TODO: ignore & change isValid to true
+                        // TO-DO: ignore & change isValid to true
                         // if (excludeCheck == true ||
                         //     (excludeCheck == false &&
                         //      IsInCheck(new Vector3(oldPosition.x - 0, oldPosition.y)) == false &&
@@ -197,7 +197,7 @@ public class PieceController : MonoBehaviour
                     if (rook.name.Contains("Rook") && rook.GetComponent<PieceController>().moved == false &&
                         CountPiecesBetweenPoints(oldPosition, rook.transform.position, Direction.Horizontal) == 0)
                     {
-                        // TODO: ignore & change isValid to true
+                        // TO-DO: ignore & change isValid to true
                         // if (excludeCheck == true ||
                         //     (excludeCheck == false &&
                         //      IsInCheck(new Vector3(oldPosition.x + 0, oldPosition.y)) == false &&
@@ -218,7 +218,7 @@ public class PieceController : MonoBehaviour
             if ((oldPosition.x == newPosition.x && CountPiecesBetweenPoints(oldPosition, newPosition, Direction.Vertical) == 0) ||
                 (oldPosition.y == newPosition.y && CountPiecesBetweenPoints(oldPosition, newPosition, Direction.Horizontal) == 0))
             {
-                // TODO: ignore & change isValid to true
+                // TO-DO: ignore & change isValid to true
                 // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
                 // {
                 //     isValid = true;
@@ -233,7 +233,7 @@ public class PieceController : MonoBehaviour
             if (Mathf.Abs(oldPosition.x - newPosition.x) == Mathf.Abs(oldPosition.y - newPosition.y) &&
                 CountPiecesBetweenPoints(oldPosition, newPosition, Direction.Diagonal) == 0)
             {
-                // TODO: ignore & change isValid to true
+                // TO-DO: ignore & change isValid to true
                 // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
                 // {
                 //     isValid = true;
@@ -248,7 +248,7 @@ public class PieceController : MonoBehaviour
             if ((Mathf.Abs(oldPosition.x - newPosition.x) == 1 && Mathf.Abs(oldPosition.y - newPosition.y) == 2) ^
                 (Mathf.Abs(oldPosition.x - newPosition.x) == 2 && Mathf.Abs(oldPosition.y - newPosition.y) == 1))
             {
-                // TODO: ignore & change isValid to true
+                // TO-DO: ignore & change isValid to true
                 // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
                 // {
                 //     isValid = true;
@@ -268,7 +268,7 @@ public class PieceController : MonoBehaviour
                 // If moving forward
                 if (oldPosition.x == newPosition.x && otherPiece == null)
                 {
-                    // TODO: ignore & change isValid to true
+                    // TO-DO: ignore & change isValid to true
                     // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
                     // {
                     //     isValid = true;
@@ -290,7 +290,7 @@ public class PieceController : MonoBehaviour
                     // If an enemy piece is encountered
                     if (otherPiece != null && otherPiece.tag != this.tag)
                     {
-                        // TODO: ignore & change isValid to true
+                        // TO-DO: ignore & change isValid to true
                         // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
                         // {
                         //     isValid = true;
@@ -307,7 +307,7 @@ public class PieceController : MonoBehaviour
             {
                 if (this.moved == false && GetPieceOnPosition(newPosition.x, newPosition.y) == null)
                 {
-                    // TODO: ignore & change isValid to true
+                    // TO-DO: ignore & change isValid to true
                     // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
                     // {
                     //     isValid = true;
@@ -388,10 +388,9 @@ public class PieceController : MonoBehaviour
         return count;
     }
 
-    // TODO: ignore
+    // TO-DO: ignore
     // public bool IsInCheck(Vector3 potentialPosition)
     // {
-    //     // TODO: skip this part
     //     bool isInCheck = false;
 
     //     // Temporarily move piece to the wanted position
