@@ -58,8 +58,11 @@ public class GameController : MonoBehaviour
 
     public void EndTurn()
     {
-        bool kingIsInCheck = false;
-        bool hasValidMoves = false;
+        // TODO: ignore
+        // bool kingIsInCheck = false;
+
+        // TODO: change false -> true
+        bool hasValidMoves = true;
 
         WhiteTurn = !WhiteTurn;
 
@@ -67,10 +70,11 @@ public class GameController : MonoBehaviour
         {
             foreach (Transform piece in WhitePieces.transform)
             {
-                if (hasValidMoves == false && HasValidMoves(piece.gameObject))
-                {
-                    hasValidMoves = true;
-                }
+                // TODO: ignore
+                // if (hasValidMoves == false && HasValidMoves(piece.gameObject))
+                // {
+                //     hasValidMoves = true;
+                // }
 
                 if (piece.name.Contains("Pawn"))
                 {
@@ -88,10 +92,11 @@ public class GameController : MonoBehaviour
         {
             foreach (Transform piece in BlackPieces.transform)
             {
-                if (hasValidMoves == false && HasValidMoves(piece.gameObject))
-                {
-                    hasValidMoves = true;
-                }
+                // TODO: ignore
+                // if (hasValidMoves == false && HasValidMoves(piece.gameObject))
+                // {
+                //     hasValidMoves = true;
+                // }
 
                 if (piece.name.Contains("Pawn"))
                 {
@@ -121,29 +126,32 @@ public class GameController : MonoBehaviour
         // }
     }
 
-    bool HasValidMoves(GameObject piece)
-    {
-        PieceController pieceController = piece.GetComponent<PieceController>();
-        GameObject encounteredEnemy;
+    // TODO: ignore
+    // bool HasValidMoves(GameObject piece)
+    // {
+    //     PieceController pieceController = piece.GetComponent<PieceController>();
+    //     GameObject encounteredEnemy;
 
-        foreach (Transform square in Board.transform)
-        {
-            if (pieceController.ValidateMovement(piece.transform.position, new Vector3(square.position.x, square.position.y, piece.transform.position.z), out encounteredEnemy))
-            {
-                Debug.Log(piece + " on " + square);
-                return true;
-            }
-        }
-        return false;
-    }
+    //     foreach (Transform square in Board.transform)
+    //     {
+    //         if (pieceController.ValidateMovement(piece.transform.position, new Vector3(square.position.x, square.position.y, piece.transform.position.z), out encounteredEnemy))
+    //         {
+    //             Debug.Log(piece + " on " + square);
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
 
-    void Stalemate()
-    {
-        Debug.Log("Stalemate!");
-    }
+    // TODO: ignore
+    // void Stalemate()
+    // {
+    //     Debug.Log("Stalemate!");
+    // }
 
-    void Checkmate()
-    {
-        Debug.Log("Checkmate!");
-    }
+    // TODO: ignore
+    // void Checkmate()
+    // {
+    //     Debug.Log("Checkmate!");
+    // }
 }
