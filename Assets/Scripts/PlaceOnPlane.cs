@@ -1,43 +1,42 @@
-
-using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-[RequireComponent(typeof(ARRaycastManager))]
-public class ARTapToPlace : MonoBehaviour
+public class SpawnOnFirstARPlane : MonoBehaviour
 {
-    [SerializeField] private GameObject prefabObject;
+    public GameObject prefabToSpawn;
+    private ARPlaneManager arPlaneManager;
+    private bool hasSpawned = false;
 
-    private GameObject spawnedObject;
-    private Vector2 touchPosition;
-    private ARRaycastManager _arRaycastManager;
-    private List<ARRaycastHit> hits = new List<ARRaycastHit>();
-
-    private void Awake()
+    void Start()
     {
-        _arRaycastManager = GetComponent<ARRaycastManager>();
+        arPlaneManager = FindObjectOfType<ARPlaneManager>();
+        arPlaneManager.planesChanged += OnPlanesChanged;
     }
 
-    void Update()
+    void OnPlanesChanged(ARPlanesChangedEventArgs args)
     {
-        if (Input.touchCount > 0)
+        if (!hasSpawned)
         {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
-                touchPosition = touch.position;
-
-            if (_arRaycastManager.Raycast(touchPosition, hits, TrackableType.PlaneWithinPolygon))
+            foreach (var plane in args.added)
             {
-                Pose hitPose = hits[0].pose;
-
-                if (spawnedObject == null)
-                    spawnedObject = Instantiate(prefabObject, hitPose.position, hitPose.rotation);
-                else
-                    spawnedObject.transform.position = hitPose.position;
+                SpawnPrefabOnPlane(plane);
+                break; // Spawn only on the first detected plane
             }
         }
+    }
+
+    void SpawnPrefabOnPlane(ARPlane plane)
+    {
+        // Instantiate the prefab on the detected plane
+        Vector3 center = plane.center;
+        Quaternion rotation = Quaternion.identity;
+
+        GameObject spawnedPrefab = Instantiate(prefabToSpawn, center, rotation);
+
+        // Set the prefab to be a child of the detected plane
+        spawnedPrefab.transform.parent = plane.transform;
+
+        hasSpawned = true;
     }
 }
