@@ -27,14 +27,12 @@ public class PieceController : MonoBehaviour
 
     private bool moved = false;
 
-    // Use this for initialization
     void Start()
     {
         if (GameController == null) GameController = FindObjectOfType<GameController>();
         if (this.name.Contains("Knight")) MoveSpeed *= 2;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (MovingY || MovingX)
@@ -54,7 +52,6 @@ public class PieceController : MonoBehaviour
     {
         if (GameController.SelectedPiece != null && GameController.SelectedPiece.GetComponent<PieceController>().IsMoving() == true)
         {
-            // Prevent clicks during movement
             return;
         }
 
@@ -70,19 +67,7 @@ public class PieceController : MonoBehaviour
             }
             else
             {
-                // TO-DO: ignore
-                // if (this.tag == GameController.SelectedPiece.tag)
-                // {
-                //     GameController.SelectPiece(this.gameObject);
-                // }
-
-                // TO-DO: edit check before capture logic
-                if ((this.tag == "White" && GameController.SelectedPiece.tag == "Black") || 
-                (this.tag == "Black" && GameController.SelectedPiece.tag == "White") ||
-                (this.tag == GameController.SelectedPiece.tag))
-                {
-                    GameController.SelectedPiece.GetComponent<PieceController>().MovePiece(this.transform.position);
-                }
+                GameController.SelectedPiece.GetComponent<PieceController>().MovePiece(this.transform.position);
             }
         }
     }
@@ -96,27 +81,24 @@ public class PieceController : MonoBehaviour
 
         if (castling || ValidateMovement(oldPosition, newPosition, out encounteredEnemy))
         {
-            // Double-step
             if (this.name.Contains("Pawn") && Mathf.Abs(oldPosition.y - newPosition.y) == 2)
             {
                 this.DoubleStep = true;
             }
-            // Promotion
             else if (this.name.Contains("Pawn") && (newPosition.y == HighestRankY || newPosition.y == LowestRankY))
             {
                 this.Promote();
             }
-            // Castling
             else if (this.name.Contains("King") && Mathf.Abs(oldPosition.x - newPosition.x) == 2)
             {
-                if (oldPosition.x - newPosition.x == 2) // queenside castling
+                if (oldPosition.x - newPosition.x == 2)
                 {
                     GameObject rook = GetPieceOnPosition(oldPosition.x - 4, oldPosition.y, this.tag);
                     Vector3 newRookPosition = oldPosition;
                     newRookPosition.x -= 1;
                     rook.GetComponent<PieceController>().MovePiece(newRookPosition, true);
                 }
-                else if (oldPosition.x - newPosition.x == -2) // kingside castling
+                else if (oldPosition.x - newPosition.x == -2)
                 {
                     GameObject rook = GetPieceOnPosition(oldPosition.x + 3, oldPosition.y, this.tag);
                     Vector3 newRookPosition = oldPosition;
@@ -129,9 +111,8 @@ public class PieceController : MonoBehaviour
             this.newPositionY = newPosition;
             this.newPositionY.x = this.transform.position.x;
             this.newPositionX = newPosition;
-            MovingY = true; // Start movement
+            MovingY = true;
 
-            // TO-DO: track pieces before destroy
             if (GameController.WhiteTurn)
             {
                 Debug.Log($"White capture {encounteredEnemy.name}");
@@ -156,7 +137,10 @@ public class PieceController : MonoBehaviour
             }
             Debug.Log("Next turn");
 
-
+            // if (this.tag == GameController.SelectedPiece.tag)
+            // {
+            //     Destroy(GameController.SelectedPiece);
+            // }
             Destroy(encounteredEnemy);
 
             return true;
@@ -173,26 +157,17 @@ public class PieceController : MonoBehaviour
         bool isValid = false;
         encounteredEnemy = GetPieceOnPosition(newPosition.x, newPosition.y);
 
-        // TO-DO: ignore same tag
-        // if ((oldPosition.x == newPosition.x && oldPosition.y == newPosition.y) || encounteredEnemy != null && encounteredEnemy.tag == this.tag)
-        if (oldPosition.x == newPosition.x && oldPosition.y == newPosition.y)
+       if (oldPosition.x == newPosition.x && oldPosition.y == newPosition.y)
         {
             return false;
         }
 
         if (this.name.Contains("King"))
         {
-            // If the path is 1 square away in any direction
             if (Mathf.Abs(oldPosition.x - newPosition.x) <= 1 && Mathf.Abs(oldPosition.y - newPosition.y) <= 1)
             {
-                // TO-DO: ignore & change isValid to true
-                // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                // {
-                //     isValid = true;
-                // }
                 isValid = true;
             }
-            // Check for castling
             else if (Mathf.Abs(oldPosition.x - newPosition.x) == 2 && oldPosition.y == newPosition.y && this.moved == false)
             {
                 if (oldPosition.x - newPosition.x == 2) // queenside castling
@@ -201,33 +176,15 @@ public class PieceController : MonoBehaviour
                     if (rook.name.Contains("Rook") && rook.GetComponent<PieceController>().moved == false &&
                         CountPiecesBetweenPoints(oldPosition, rook.transform.position, Direction.Horizontal) == 0)
                     {
-                        // TO-DO: ignore & change isValid to true
-                        // if (excludeCheck == true ||
-                        //     (excludeCheck == false &&
-                        //      IsInCheck(new Vector3(oldPosition.x - 0, oldPosition.y)) == false &&
-                        //      IsInCheck(new Vector3(oldPosition.x - 1, oldPosition.y)) == false &&
-                        //      IsInCheck(new Vector3(oldPosition.x - 2, oldPosition.y)) == false))
-                        // {
-                        //     isValid = true;
-                        // }
                         isValid = true;
                     }
                 }
-                else if (oldPosition.x - newPosition.x == -2) // kingside castling
+                else if (oldPosition.x - newPosition.x == -2)
                 {
                     GameObject rook = GetPieceOnPosition(oldPosition.x + 3, oldPosition.y, this.tag);
                     if (rook.name.Contains("Rook") && rook.GetComponent<PieceController>().moved == false &&
                         CountPiecesBetweenPoints(oldPosition, rook.transform.position, Direction.Horizontal) == 0)
                     {
-                        // TO-DO: ignore & change isValid to true
-                        // if (excludeCheck == true ||
-                        //     (excludeCheck == false &&
-                        //      IsInCheck(new Vector3(oldPosition.x + 0, oldPosition.y)) == false &&
-                        //      IsInCheck(new Vector3(oldPosition.x + 1, oldPosition.y)) == false &&
-                        //      IsInCheck(new Vector3(oldPosition.x + 2, oldPosition.y)) == false))
-                        // {
-                        //     isValid = true;
-                        // }
                         isValid = true;
                     }
                 }
@@ -236,71 +193,44 @@ public class PieceController : MonoBehaviour
 
         if (this.name.Contains("Rook") || this.name.Contains("Queen"))
         {
-            // If the path is a straight horizontal or vertical line
             if ((oldPosition.x == newPosition.x && CountPiecesBetweenPoints(oldPosition, newPosition, Direction.Vertical) == 0) ||
                 (oldPosition.y == newPosition.y && CountPiecesBetweenPoints(oldPosition, newPosition, Direction.Horizontal) == 0))
             {
-                // TO-DO: ignore & change isValid to true
-                // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                // {
-                //     isValid = true;
-                // }
                 isValid = true;
             }
         }
 
         if (this.name.Contains("Bishop") || this.name.Contains("Queen"))
         {
-            // If the path is a straight diagonal line
             if (Mathf.Abs(oldPosition.x - newPosition.x) == Mathf.Abs(oldPosition.y - newPosition.y) &&
                 CountPiecesBetweenPoints(oldPosition, newPosition, Direction.Diagonal) == 0)
             {
-                // TO-DO: ignore & change isValid to true
-                // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                // {
-                //     isValid = true;
-                // }
                 isValid = true;
             }
         }
 
         if (this.name.Contains("Knight"))
         {
-            // If the path is an 'L' shape
             if ((Mathf.Abs(oldPosition.x - newPosition.x) == 1 && Mathf.Abs(oldPosition.y - newPosition.y) == 2) ^
                 (Mathf.Abs(oldPosition.x - newPosition.x) == 2 && Mathf.Abs(oldPosition.y - newPosition.y) == 1))
             {
-                // TO-DO: ignore & change isValid to true
-                // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                // {
-                //     isValid = true;
-                // }
                 isValid = true;
             }
         }
 
         if (this.name.Contains("Pawn"))
         {
-            // If the new position is on the rank above (White) or below (Black)
             if ((this.tag == "White" && oldPosition.y + 1 == newPosition.y) ||
                (this.tag == "Black" && oldPosition.y - 1 == newPosition.y))
             {
                 GameObject otherPiece = GetPieceOnPosition(newPosition.x, newPosition.y);
 
-                // If moving forward
                 if (oldPosition.x == newPosition.x && otherPiece == null)
                 {
-                    // TO-DO: ignore & change isValid to true
-                    // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                    // {
-                    //     isValid = true;
-                    // }
                     isValid = true;
                 }
-                // If moving diagonally
                 else if (oldPosition.x == newPosition.x - 1 || oldPosition.x == newPosition.x + 1)
                 {
-                    // Check if en passant is available
                     if (otherPiece == null)
                     {
                         otherPiece = GetPieceOnPosition(newPosition.x, oldPosition.y);
@@ -309,31 +239,19 @@ public class PieceController : MonoBehaviour
                             otherPiece = null;
                         }
                     }
-                    // If an enemy piece is encountered
                     if (otherPiece != null)
                     {
-                        // TO-DO: ignore & change isValid to true
-                        // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                        // {
-                        //     isValid = true;
-                        // }
                         isValid = true;
                     }
                 }
 
                 encounteredEnemy = otherPiece;
             }
-            // Double-step
             else if ((this.tag == "White" && oldPosition.x == newPosition.x && oldPosition.y + 2 == newPosition.y) ||
                      (this.tag == "Black" && oldPosition.x == newPosition.x && oldPosition.y - 2 == newPosition.y))
             {
                 if (this.moved == false && GetPieceOnPosition(newPosition.x, newPosition.y) == null)
                 {
-                    // TO-DO: ignore & change isValid to true
-                    // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                    // {
-                    //     isValid = true;
-                    // }
                     isValid = true;
                 }
             }
@@ -409,56 +327,6 @@ public class PieceController : MonoBehaviour
 
         return count;
     }
-
-    // TO-DO: ignore
-    // public bool IsInCheck(Vector3 potentialPosition)
-    // {
-    //     bool isInCheck = false;
-
-    //     // Temporarily move piece to the wanted position
-    //     Vector3 currentPosition = this.transform.position;
-    //     this.transform.SetPositionAndRotation(potentialPosition, this.transform.rotation);
-
-    //     GameObject encounteredEnemy;
-
-    //     if (this.tag == "Black")
-    //     {
-    //         Vector3 kingPosition = BlackPieces.transform.Find("Black King").position;
-    //         foreach (Transform piece in WhitePieces.transform)
-    //         {
-    //             // If piece is not potentially captured
-    //             if (piece.position.x != potentialPosition.x || piece.position.y != potentialPosition.y) {
-    //                 if (piece.GetComponent<PieceController>().ValidateMovement(piece.position, kingPosition, out encounteredEnemy, true))
-    //                 {
-    //                     Debug.Log("Black King is in check by: " + piece);
-    //                     isInCheck = true;
-    //                     break;
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     else if (this.tag == "White")
-    //     {
-    //         Vector3 kingPosition = WhitePieces.transform.Find("White King").position;
-    //         foreach (Transform piece in BlackPieces.transform)
-    //         {
-    //             // If piece is not potentially captured
-    //             if (piece.position.x != potentialPosition.x || piece.position.y != potentialPosition.y)
-    //             {
-    //                 if (piece.GetComponent<PieceController>().ValidateMovement(piece.position, kingPosition, out encounteredEnemy, true))
-    //                 {
-    //                     Debug.Log("White King is in check by: " + piece);
-    //                     isInCheck = true;
-    //                     break;
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     // Move back to the real position
-    //     this.transform.SetPositionAndRotation(currentPosition, this.transform.rotation);
-    //     return isInCheck;
-    // }
 
     void MoveSideBySide()
     {
