@@ -153,10 +153,12 @@ public class PieceController : MonoBehaviour
             // If the path is 1 square away in any direction
             if (Mathf.Abs(oldPosition.x - newPosition.x) <= 1 && Mathf.Abs(oldPosition.y - newPosition.y) <= 1)
             {
-                if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                {
-                    isValid = true;
-                }
+                // TODO: ignore & change isValid to true
+                // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
+                // {
+                //     isValid = true;
+                // }
+                isValid = true;
             }
             // Check for castling
             else if (Mathf.Abs(oldPosition.x - newPosition.x) == 2 && oldPosition.y == newPosition.y && this.moved == false)
@@ -167,14 +169,16 @@ public class PieceController : MonoBehaviour
                     if (rook.name.Contains("Rook") && rook.GetComponent<PieceController>().moved == false &&
                         CountPiecesBetweenPoints(oldPosition, rook.transform.position, Direction.Horizontal) == 0)
                     {
-                        if (excludeCheck == true ||
-                            (excludeCheck == false &&
-                             IsInCheck(new Vector3(oldPosition.x - 0, oldPosition.y)) == false &&
-                             IsInCheck(new Vector3(oldPosition.x - 1, oldPosition.y)) == false &&
-                             IsInCheck(new Vector3(oldPosition.x - 2, oldPosition.y)) == false))
-                        {
-                            isValid = true;
-                        }
+                        // TODO: ignore & change isValid to true
+                        // if (excludeCheck == true ||
+                        //     (excludeCheck == false &&
+                        //      IsInCheck(new Vector3(oldPosition.x - 0, oldPosition.y)) == false &&
+                        //      IsInCheck(new Vector3(oldPosition.x - 1, oldPosition.y)) == false &&
+                        //      IsInCheck(new Vector3(oldPosition.x - 2, oldPosition.y)) == false))
+                        // {
+                        //     isValid = true;
+                        // }
+                        isValid = true;
                     }
                 }
                 else if (oldPosition.x - newPosition.x == -2) // kingside castling
@@ -183,14 +187,16 @@ public class PieceController : MonoBehaviour
                     if (rook.name.Contains("Rook") && rook.GetComponent<PieceController>().moved == false &&
                         CountPiecesBetweenPoints(oldPosition, rook.transform.position, Direction.Horizontal) == 0)
                     {
-                        if (excludeCheck == true ||
-                            (excludeCheck == false &&
-                             IsInCheck(new Vector3(oldPosition.x + 0, oldPosition.y)) == false &&
-                             IsInCheck(new Vector3(oldPosition.x + 1, oldPosition.y)) == false &&
-                             IsInCheck(new Vector3(oldPosition.x + 2, oldPosition.y)) == false))
-                        {
-                            isValid = true;
-                        }
+                        // TODO: ignore & change isValid to true
+                        // if (excludeCheck == true ||
+                        //     (excludeCheck == false &&
+                        //      IsInCheck(new Vector3(oldPosition.x + 0, oldPosition.y)) == false &&
+                        //      IsInCheck(new Vector3(oldPosition.x + 1, oldPosition.y)) == false &&
+                        //      IsInCheck(new Vector3(oldPosition.x + 2, oldPosition.y)) == false))
+                        // {
+                        //     isValid = true;
+                        // }
+                        isValid = true;
                     }
                 }
             }
