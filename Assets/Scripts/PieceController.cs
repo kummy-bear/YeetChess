@@ -75,9 +75,9 @@ public class PieceController : MonoBehaviour
                 // {
                 //     GameController.SelectPiece(this.gameObject);
                 // }
-                
+
                 // TO-DO: edit check before capture logic
-                else if ((this.tag == "White" && GameController.SelectedPiece.tag == "Black") || 
+                if ((this.tag == "White" && GameController.SelectedPiece.tag == "Black") || 
                 (this.tag == "Black" && GameController.SelectedPiece.tag == "White") ||
                 (this.tag == GameController.SelectedPiece.tag))
                 {
