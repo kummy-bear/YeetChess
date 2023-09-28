@@ -27,6 +27,9 @@ public class PieceController : MonoBehaviour
 
     private bool moved = false;
 
+    List<GameObject> destroyedByWhite = CaptureData.destroyedWhiteEnemies;
+    List<GameObject> destroyedBlack = CaptureData.destroyedWhiteEnemies;
+
     // Use this for initialization
     void Start()
     {
@@ -75,7 +78,9 @@ public class PieceController : MonoBehaviour
                     GameController.SelectPiece(this.gameObject);
                 }
                 // TODO: edit check before eat logic
-                else if ((this.tag == "White" && GameController.SelectedPiece.tag == "Black") || (this.tag == "Black" && GameController.SelectedPiece.tag == "White"))
+                else if ((this.tag == "White" && GameController.SelectedPiece.tag == "Black") || 
+                (this.tag == "Black" && GameController.SelectedPiece.tag == "White")) ||
+                (this.tag == GameController.SelectedPiece.tag)
                 {
                     GameController.SelectedPiece.GetComponent<PieceController>().MovePiece(this.transform.position);
                 }
