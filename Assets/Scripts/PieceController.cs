@@ -27,9 +27,6 @@ public class PieceController : MonoBehaviour
 
     private bool moved = false;
 
-    List<GameObject> destroyedByWhite = CaptureData.destroyedWhiteEnemies;
-    List<GameObject> destroyedBlack = CaptureData.destroyedWhiteEnemies;
-
     // Use this for initialization
     void Start()
     {
@@ -133,6 +130,14 @@ public class PieceController : MonoBehaviour
             MovingY = true; // Start movement
 
             // TODO: track pieces before destroy
+            if (GameController.WhiteTurn)
+            {
+                CaptureData.destroyedByWhite.Add(encounteredEnemy);
+            }
+            else
+            {
+                CaptureData.destroyedBlack.Add(encounteredEnemy);
+            }
             Destroy(encounteredEnemy);
             return true;
         }
