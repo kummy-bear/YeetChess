@@ -378,55 +378,56 @@ public class PieceController : MonoBehaviour
         return count;
     }
 
-    public bool IsInCheck(Vector3 potentialPosition)
-    {
-        // TODO: skip this part
-        bool isInCheck = false;
+    // TODO: ignore
+    // public bool IsInCheck(Vector3 potentialPosition)
+    // {
+    //     // TODO: skip this part
+    //     bool isInCheck = false;
 
-        // Temporarily move piece to the wanted position
-        Vector3 currentPosition = this.transform.position;
-        this.transform.SetPositionAndRotation(potentialPosition, this.transform.rotation);
+    //     // Temporarily move piece to the wanted position
+    //     Vector3 currentPosition = this.transform.position;
+    //     this.transform.SetPositionAndRotation(potentialPosition, this.transform.rotation);
 
-        GameObject encounteredEnemy;
+    //     GameObject encounteredEnemy;
 
-        if (this.tag == "Black")
-        {
-            Vector3 kingPosition = BlackPieces.transform.Find("Black King").position;
-            foreach (Transform piece in WhitePieces.transform)
-            {
-                // If piece is not potentially captured
-                if (piece.position.x != potentialPosition.x || piece.position.y != potentialPosition.y) {
-                    if (piece.GetComponent<PieceController>().ValidateMovement(piece.position, kingPosition, out encounteredEnemy, true))
-                    {
-                        Debug.Log("Black King is in check by: " + piece);
-                        isInCheck = true;
-                        break;
-                    }
-                }
-            }
-        }
-        else if (this.tag == "White")
-        {
-            Vector3 kingPosition = WhitePieces.transform.Find("White King").position;
-            foreach (Transform piece in BlackPieces.transform)
-            {
-                // If piece is not potentially captured
-                if (piece.position.x != potentialPosition.x || piece.position.y != potentialPosition.y)
-                {
-                    if (piece.GetComponent<PieceController>().ValidateMovement(piece.position, kingPosition, out encounteredEnemy, true))
-                    {
-                        Debug.Log("White King is in check by: " + piece);
-                        isInCheck = true;
-                        break;
-                    }
-                }
-            }
-        }
+    //     if (this.tag == "Black")
+    //     {
+    //         Vector3 kingPosition = BlackPieces.transform.Find("Black King").position;
+    //         foreach (Transform piece in WhitePieces.transform)
+    //         {
+    //             // If piece is not potentially captured
+    //             if (piece.position.x != potentialPosition.x || piece.position.y != potentialPosition.y) {
+    //                 if (piece.GetComponent<PieceController>().ValidateMovement(piece.position, kingPosition, out encounteredEnemy, true))
+    //                 {
+    //                     Debug.Log("Black King is in check by: " + piece);
+    //                     isInCheck = true;
+    //                     break;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     else if (this.tag == "White")
+    //     {
+    //         Vector3 kingPosition = WhitePieces.transform.Find("White King").position;
+    //         foreach (Transform piece in BlackPieces.transform)
+    //         {
+    //             // If piece is not potentially captured
+    //             if (piece.position.x != potentialPosition.x || piece.position.y != potentialPosition.y)
+    //             {
+    //                 if (piece.GetComponent<PieceController>().ValidateMovement(piece.position, kingPosition, out encounteredEnemy, true))
+    //                 {
+    //                     Debug.Log("White King is in check by: " + piece);
+    //                     isInCheck = true;
+    //                     break;
+    //                 }
+    //             }
+    //         }
+    //     }
 
-        // Move back to the real position
-        this.transform.SetPositionAndRotation(currentPosition, this.transform.rotation);
-        return isInCheck;
-    }
+    //     // Move back to the real position
+    //     this.transform.SetPositionAndRotation(currentPosition, this.transform.rotation);
+    //     return isInCheck;
+    // }
 
     void MoveSideBySide()
     {
