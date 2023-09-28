@@ -155,7 +155,9 @@ public class PieceController : MonoBehaviour
         bool isValid = false;
         encounteredEnemy = GetPieceOnPosition(newPosition.x, newPosition.y);
 
-        if ((oldPosition.x == newPosition.x && oldPosition.y == newPosition.y) || encounteredEnemy != null && encounteredEnemy.tag == this.tag)
+        // TO-DO: ignore same tag
+        // if ((oldPosition.x == newPosition.x && oldPosition.y == newPosition.y) || encounteredEnemy != null && encounteredEnemy.tag == this.tag)
+        if (oldPosition.x == newPosition.x && oldPosition.y == newPosition.y)
         {
             return false;
         }
