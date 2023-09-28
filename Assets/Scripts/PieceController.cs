@@ -292,7 +292,7 @@ public class PieceController : MonoBehaviour
                         }
                     }
                     // If an enemy piece is encountered
-                    if (otherPiece != null && otherPiece.tag != this.tag)
+                    if (otherPiece != null)
                     {
                         // TO-DO: ignore & change isValid to true
                         // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
