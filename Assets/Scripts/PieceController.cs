@@ -142,6 +142,21 @@ public class PieceController : MonoBehaviour
                 Debug.Log($"Black capture {encounteredEnemy.name}");
                 CaptureData.destroyedByBlack.Add(encounteredEnemy.name);
             }
+
+            Debug.Log("Destroyed by White");
+            foreach (string piece in CaptureData.destroyedByWhite)
+            {
+                Debug.Log($"{piece}");
+            }
+
+            Debug.Log("Destroyed by Black");
+            foreach (string piece in CaptureData.destroyedByBlack)
+            {
+                Debug.Log($"{piece}");
+            }
+            Debug.Log("Next turn");
+
+
             Destroy(encounteredEnemy);
 
             return true;
