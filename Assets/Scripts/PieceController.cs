@@ -138,7 +138,7 @@ public class PieceController : MonoBehaviour
             }
             else
             {
-                CaptureData.destroyedBlack.Add(encounteredEnemy);
+                CaptureData.destroyedByBlack.Add(encounteredEnemy);
             }
             Destroy(encounteredEnemy);
             return true;
