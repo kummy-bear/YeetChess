@@ -208,10 +208,12 @@ public class PieceController : MonoBehaviour
             if ((oldPosition.x == newPosition.x && CountPiecesBetweenPoints(oldPosition, newPosition, Direction.Vertical) == 0) ||
                 (oldPosition.y == newPosition.y && CountPiecesBetweenPoints(oldPosition, newPosition, Direction.Horizontal) == 0))
             {
-                if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                {
-                    isValid = true;
-                }
+                // TODO: ignore & change isValid to true
+                // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
+                // {
+                //     isValid = true;
+                // }
+                isValid = true;
             }
         }
 
@@ -221,10 +223,12 @@ public class PieceController : MonoBehaviour
             if (Mathf.Abs(oldPosition.x - newPosition.x) == Mathf.Abs(oldPosition.y - newPosition.y) &&
                 CountPiecesBetweenPoints(oldPosition, newPosition, Direction.Diagonal) == 0)
             {
-                if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                {
-                    isValid = true;
-                }
+                // TODO: ignore & change isValid to true
+                // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
+                // {
+                //     isValid = true;
+                // }
+                isValid = true;
             }
         }
 
@@ -234,10 +238,12 @@ public class PieceController : MonoBehaviour
             if ((Mathf.Abs(oldPosition.x - newPosition.x) == 1 && Mathf.Abs(oldPosition.y - newPosition.y) == 2) ^
                 (Mathf.Abs(oldPosition.x - newPosition.x) == 2 && Mathf.Abs(oldPosition.y - newPosition.y) == 1))
             {
-                if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                {
-                    isValid = true;
-                }
+                // TODO: ignore & change isValid to true
+                // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
+                // {
+                //     isValid = true;
+                // }
+                isValid = true;
             }
         }
 
@@ -252,10 +258,12 @@ public class PieceController : MonoBehaviour
                 // If moving forward
                 if (oldPosition.x == newPosition.x && otherPiece == null)
                 {
-                    if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                    {
-                        isValid = true;
-                    }
+                    // TODO: ignore & change isValid to true
+                    // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
+                    // {
+                    //     isValid = true;
+                    // }
+                    isValid = true;
                 }
                 // If moving diagonally
                 else if (oldPosition.x == newPosition.x - 1 || oldPosition.x == newPosition.x + 1)
@@ -272,10 +280,12 @@ public class PieceController : MonoBehaviour
                     // If an enemy piece is encountered
                     if (otherPiece != null && otherPiece.tag != this.tag)
                     {
-                        if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                        {
-                            isValid = true;
-                        }
+                        // TODO: ignore & change isValid to true
+                        // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
+                        // {
+                        //     isValid = true;
+                        // }
+                        isValid = true;
                     }
                 }
 
@@ -287,10 +297,12 @@ public class PieceController : MonoBehaviour
             {
                 if (this.moved == false && GetPieceOnPosition(newPosition.x, newPosition.y) == null)
                 {
-                    if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
-                    {
-                        isValid = true;
-                    }
+                    // TODO: ignore & change isValid to true
+                    // if (excludeCheck == true || (excludeCheck == false && IsInCheck(newPosition) == false))
+                    // {
+                    //     isValid = true;
+                    // }
+                    isValid = true;
                 }
             }
         }
