@@ -134,13 +134,16 @@ public class PieceController : MonoBehaviour
             // TO-DO: track pieces before destroy
             if (GameController.WhiteTurn)
             {
-                CaptureData.destroyedByWhite.Add(encounteredEnemy);
+                Debug.Log($"White capture {encounteredEnemy.name}");
+                CaptureData.destroyedByWhite.Add(encounteredEnemy.name);
             }
             else
             {
-                CaptureData.destroyedByBlack.Add(encounteredEnemy);
+                Debug.Log($"Black capture {encounteredEnemy.name}");
+                CaptureData.destroyedByBlack.Add(encounteredEnemy.name);
             }
             Destroy(encounteredEnemy);
+
             return true;
         }
         else

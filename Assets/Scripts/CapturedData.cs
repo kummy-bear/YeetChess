@@ -3,6 +3,6 @@ using UnityEngine;
 
 public static class CaptureData
 {
-    public static List<GameObject> destroyedByWhite = new List<GameObject>();
-    public static List<GameObject> destroyedByBlack = new List<GameObject>();
+    public static List<string> destroyedByWhite = new List<string>();
+    public static List<string> destroyedByBlack = new List<string>();
 }
