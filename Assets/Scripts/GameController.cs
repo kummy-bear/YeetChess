@@ -97,6 +97,7 @@ public class GameController : MonoBehaviour
                 {
                     piece.GetComponent<PieceController>().DoubleStep = false;
                 }
+                // TODO: edit king's logic
                 // IGNORE CHECK
                 // else if (piece.name.Contains("King"))
                 // {
@@ -105,17 +106,19 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (hasValidMoves == false)
-        {
-            if (kingIsInCheck == false)
-            {
-                Stalemate();
-            }
-            else
-            {
-                Checkmate();
-            }
-        }
+        // TODO: edit 
+        // IGNORE 
+        // if (hasValidMoves == false)
+        // {
+        //     if (kingIsInCheck == false)
+        //     {
+        //         Stalemate();
+        //     }
+        //     else
+        //     {
+        //         Checkmate();
+        //     }
+        // }
     }
 
     bool HasValidMoves(GameObject piece)
