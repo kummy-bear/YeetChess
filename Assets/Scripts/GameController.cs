@@ -30,10 +30,8 @@ public class GameController : MonoBehaviour
             DeselectPiece();
             SelectedPiece = piece;
 
-            // Highlight
             SelectedPiece.GetComponent<SpriteRenderer>().color = Color.yellow;
 
-            // Put above other pieces
             Vector3 newPosition = SelectedPiece.transform.position;
             newPosition.z = -1;
             SelectedPiece.transform.SetPositionAndRotation(newPosition, SelectedPiece.transform.rotation);
@@ -44,10 +42,8 @@ public class GameController : MonoBehaviour
     {
         if (SelectedPiece != null)
         {
-            // Remove highlight
             SelectedPiece.GetComponent<SpriteRenderer>().color = Color.white;
 
-            // Put back on the same level as other pieces
             Vector3 newPosition = SelectedPiece.transform.position;
             newPosition.z = 0;
             SelectedPiece.transform.SetPositionAndRotation(newPosition, SelectedPiece.transform.rotation);
@@ -58,10 +54,6 @@ public class GameController : MonoBehaviour
 
     public void EndTurn()
     {
-        // TO-DO: ignore
-        // bool kingIsInCheck = false;
-
-        // TO-DO: change false -> true
         bool hasValidMoves = true;
 
         WhiteTurn = !WhiteTurn;
@@ -70,87 +62,21 @@ public class GameController : MonoBehaviour
         {
             foreach (Transform piece in WhitePieces.transform)
             {
-                // TO-DO: ignore
-                // if (hasValidMoves == false && HasValidMoves(piece.gameObject))
-                // {
-                //     hasValidMoves = true;
-                // }
-
                 if (piece.name.Contains("Pawn"))
                 {
                     piece.GetComponent<PieceController>().DoubleStep = false;
                 }
-                // TO-DO: edit king's logic
-                // IGNORE CHECK
-                // else if (piece.name.Contains("King"))
-                // {
-                //     kingIsInCheck = piece.GetComponent<PieceController>().IsInCheck(piece.position);
-                // }
             }
         }
         else
         {
             foreach (Transform piece in BlackPieces.transform)
             {
-                // TO-DO: ignore
-                // if (hasValidMoves == false && HasValidMoves(piece.gameObject))
-                // {
-                //     hasValidMoves = true;
-                // }
-
                 if (piece.name.Contains("Pawn"))
                 {
                     piece.GetComponent<PieceController>().DoubleStep = false;
                 }
-                // TO-DO: edit king's logic
-                // IGNORE CHECK
-                // else if (piece.name.Contains("King"))
-                // {
-                //     kingIsInCheck = piece.GetComponent<PieceController>().IsInCheck(piece.position);
-                // }
             }
         }
-
-        // TO-DO: ignore
-        // if (hasValidMoves == false)
-        // {
-        //     if (kingIsInCheck == false)
-        //     {
-        //         Stalemate();
-        //     }
-        //     else
-        //     {
-        //         Checkmate();
-        //     }
-        // }
     }
-
-    // TO-DO: ignore
-    // bool HasValidMoves(GameObject piece)
-    // {
-    //     PieceController pieceController = piece.GetComponent<PieceController>();
-    //     GameObject encounteredEnemy;
-
-    //     foreach (Transform square in Board.transform)
-    //     {
-    //         if (pieceController.ValidateMovement(piece.transform.position, new Vector3(square.position.x, square.position.y, piece.transform.position.z), out encounteredEnemy))
-    //         {
-    //             Debug.Log(piece + " on " + square);
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-
-    // TO-DO: ignore
-    // void Stalemate()
-    // {
-    //     Debug.Log("Stalemate!");
-    // }
-
-    // TO-DO: ignore
-    // void Checkmate()
-    // {
-    //     Debug.Log("Checkmate!");
-    // }
 }
