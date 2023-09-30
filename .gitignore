@@ -74,4 +74,6 @@ crashlytics-build.properties
 /Library
 /Logs
 
-.log
+*.log
+*.cs.meta
+UserSettings/*
