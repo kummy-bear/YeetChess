@@ -15,27 +15,27 @@ public class Piece
 
         if (Name == "Pawn")
         {
-            Weight = 0;
+            Weight = 10;
         }
         else if (Name == "Rook")
         {
-            Weight = 0;
+            Weight = 100;
         }
         else if (Name == "Horse")
         {
-            Weight = 0;
+            Weight = 100;
         }
         else if (Name == "Knight")
         {
-            Weight = 0;
+            Weight = 100;
         }
         else if (Name == "Queen")
         {
-            Weight = 0;
+            Weight = 1000;
         }
         else if (Name == "King")
         {
-            Weight = 0;
+            Weight = 10000;
         }
     }
 }
