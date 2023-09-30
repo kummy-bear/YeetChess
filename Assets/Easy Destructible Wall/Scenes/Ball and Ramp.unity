@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000001, guid: 80df8c66c3e83ca408a7a12cf171cd05,
     type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 3c75fca4a05fbc54d8f00fcddb433947,
+  m_LightingSettings: {fileID: 4890085278179872738, guid: bcff7ba5166c3dc4285988a980cf400d,
     type: 2}
 --- !u!1 &5
 GameObject:

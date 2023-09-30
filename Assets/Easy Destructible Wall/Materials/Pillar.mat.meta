@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 9a1d9d0cc084e2d4c964a6c03da5afd9
+guid: 24bfbcad80af3de47a7a4c4504702852
+labels:
+- Column
+- Pillar
+- Texture
 NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 

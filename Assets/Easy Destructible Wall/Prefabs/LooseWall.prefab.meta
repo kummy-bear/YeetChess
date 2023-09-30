@@ -1,7 +1,10 @@
 fileFormatVersion: 2
-guid: fee862eb324b23f429f0fd1ca88954c1
-PrefabImporter:
-  externalObjects: {}
+guid: 10bdc0b650e7d8a4a812751804586b67
+labels:
+- Destruction
+- Destructible
+- Physics
+- Wall
+- Brick
+NativeFormatImporter:
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 

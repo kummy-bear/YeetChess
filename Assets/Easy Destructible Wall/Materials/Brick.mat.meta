@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 94c93e11f20440f48a0465fd4b66bbb4
+guid: a04d123b2e9151a4b9702d6aa1e6c7f0
+labels:
+- Brick
+- Texture
 NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
