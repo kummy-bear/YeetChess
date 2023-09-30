@@ -3,8 +3,8 @@ using UnityEngine;
 
 public static class CaptureData
 {
-    public static List<string> destroyedByWhite = new List<string>();
-    public static List<string> destroyedByBlack = new List<string>();
+    public static List<Piece> destroyedByWhite = new List<Piece>();
+    public static List<Piece> destroyedByBlack = new List<Piece>();
     public static GameObject SelectedPiece;
     public static bool same = false;
 }

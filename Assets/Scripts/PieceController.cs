@@ -116,24 +116,25 @@ public class PieceController : MonoBehaviour
             if (GameController.WhiteTurn)
             {
                 Debug.Log($"White capture {encounteredEnemy.name}");
-                CaptureData.destroyedByWhite.Add(encounteredEnemy.name);
+                
+                CaptureData.destroyedByWhite.Add(new Piece(encounteredEnemy.name));
             }
             else
             {
                 Debug.Log($"Black capture {encounteredEnemy.name}");
-                CaptureData.destroyedByBlack.Add(encounteredEnemy.name);
+                CaptureData.destroyedByBlack.Add(new Piece(encounteredEnemy.name));
             }
 
             Debug.Log("Destroyed by White");
-            foreach (string piece in CaptureData.destroyedByWhite)
+            foreach (Piece piece in CaptureData.destroyedByWhite)
             {
-                Debug.Log($"{piece}");
+                Debug.Log($"{piece.Name}");
             }
 
             Debug.Log("Destroyed by Black");
-            foreach (string piece in CaptureData.destroyedByBlack)
+            foreach (Piece piece in CaptureData.destroyedByBlack)
             {
-                Debug.Log($"{piece}");
+                Debug.Log($"{piece.Name}");
             }
             Debug.Log("Next turn");
 

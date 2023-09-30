@@ -9,31 +9,31 @@ public class Piece
 
     public Piece(string fullName)
     {
-        fullName = fullName.split(" ");
-        Name = fullName[1];
-        Color = fullName[0];
+        string[] temp = fullName.Split(' ');
+        Name = temp[1];
+        Color = temp[0];
 
-        if (name == "Rook")
+        if (Name == "Rook")
         {
             Weight = 0;
         }
-        else if (name == "Pawn")
+        else if (Name == "Pawn")
         {
             Weight = 0;
         }
-        else if (name == "Knight")
+        else if (Name == "Knight")
         {
             Weight = 0;
         }
-        else if (name == "Princess")
+        else if (Name == "Princess")
         {
             Weight = 0;
         }
-        else if (name == "Horse")
+        else if (Name == "Horse")
         {
             Weight = 0;
         }
-        else if (name == "King")
+        else if (Name == "King")
         {
             Weight = 0;
         }
