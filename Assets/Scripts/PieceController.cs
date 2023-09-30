@@ -125,19 +125,6 @@ public class PieceController : MonoBehaviour
                 CaptureData.destroyedByBlack.Add(new Piece(encounteredEnemy.name));
             }
 
-            Debug.Log("Destroyed by White");
-            foreach (Piece piece in CaptureData.destroyedByWhite)
-            {
-                Debug.Log($"{piece.Color} {piece.Name}");
-            }
-
-            Debug.Log("Destroyed by Black");
-            foreach (Piece piece in CaptureData.destroyedByBlack)
-            {
-                Debug.Log($"{piece.Color} {piece.Name}");
-            }
-            Debug.Log("Next turn");
-
             if (this.tag == GameController.SelectedPiece.tag)
             {
                 CaptureData.same = true;
