@@ -128,13 +128,13 @@ public class PieceController : MonoBehaviour
             Debug.Log("Destroyed by White");
             foreach (Piece piece in CaptureData.destroyedByWhite)
             {
-                Debug.Log($"{piece.Name}");
+                Debug.Log($"{piece.Color} {piece.Name}");
             }
 
             Debug.Log("Destroyed by Black");
             foreach (Piece piece in CaptureData.destroyedByBlack)
             {
-                Debug.Log($"{piece.Name}");
+                Debug.Log($"{piece.Color} {piece.Name}");
             }
             Debug.Log("Next turn");
 
