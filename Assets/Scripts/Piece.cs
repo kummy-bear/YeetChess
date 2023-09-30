@@ -13,11 +13,15 @@ public class Piece
         Name = temp[1];
         Color = temp[0];
 
-        if (Name == "Rook")
+        if (Name == "Pawn")
         {
             Weight = 0;
         }
-        else if (Name == "Pawn")
+        else if (Name == "Rook")
+        {
+            Weight = 0;
+        }
+        else if (Name == "Horse")
         {
             Weight = 0;
         }
@@ -25,11 +29,7 @@ public class Piece
         {
             Weight = 0;
         }
-        else if (Name == "Princess")
-        {
-            Weight = 0;
-        }
-        else if (Name == "Horse")
+        else if (Name == "Queen")
         {
             Weight = 0;
         }
