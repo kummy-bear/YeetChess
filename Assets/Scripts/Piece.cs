@@ -17,23 +17,23 @@ public class Piece
         {
             Weight = 0;
         }
-        if (name == "Pawn")
+        else if (name == "Pawn")
         {
             Weight = 0;
         }
-        if (name == "Knight")
+        else if (name == "Knight")
         {
             Weight = 0;
         }
-        if (name == "Princess")
+        else if (name == "Princess")
         {
             Weight = 0;
         }
-        if (name == "Horse")
+        else if (name == "Horse")
         {
             Weight = 0;
         }
-        if (name == "King")
+        else if (name == "King")
         {
             Weight = 0;
         }
