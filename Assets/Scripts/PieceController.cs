@@ -137,10 +137,11 @@ public class PieceController : MonoBehaviour
             }
             Debug.Log("Next turn");
 
-            // if (this.tag == GameController.SelectedPiece.tag)
-            // {
-            //     Destroy(GameController.SelectedPiece);
-            // }
+            if (this.tag == GameController.SelectedPiece.tag)
+            {
+                CaptureData.same = true;
+                CaptureData.SelectedPiece = GameController.SelectedPiece;
+            }
             Destroy(encounteredEnemy);
 
             return true;

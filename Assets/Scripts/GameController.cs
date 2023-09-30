@@ -58,6 +58,11 @@ public class GameController : MonoBehaviour
 
         WhiteTurn = !WhiteTurn;
 
+        if (CaptureData.same)
+        {
+            Destroy(CaptureData.SelectedPiece);
+        }
+
         if (WhiteTurn)
         {
             foreach (Transform piece in WhitePieces.transform)
