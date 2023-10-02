@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
             SelectedPiece.GetComponent<SpriteRenderer>().color = Color.yellow;
 
             Vector3 newPosition = SelectedPiece.transform.position;
-            newPosition.z = -1;
+            //newPosition.z = this.transform.position.z;
             SelectedPiece.transform.SetPositionAndRotation(newPosition, SelectedPiece.transform.rotation);
         }
     }
@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
             SelectedPiece.GetComponent<SpriteRenderer>().color = Color.white;
 
             Vector3 newPosition = SelectedPiece.transform.position;
-            newPosition.z = 0;
+            //newPosition.z = this.transform.position.z;
             SelectedPiece.transform.SetPositionAndRotation(newPosition, SelectedPiece.transform.rotation);
 
             SelectedPiece = null;
@@ -61,6 +61,7 @@ public class GameController : MonoBehaviour
         if (CaptureData.same)
         {
             Destroy(CaptureData.SelectedPiece);
+            CaptureData.same = false;
         }
 
         if (WhiteTurn)
