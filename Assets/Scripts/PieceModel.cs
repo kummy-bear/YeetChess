@@ -1,11 +1,7 @@
 using UnityEngine;
 
-public class PieceModel : MonoBehaviour
+public static class PieceModel
 {
-    void Start()
-    {
-
-    }
     public static GameObject whitePawn;
     public static GameObject blackPawn;
     public static GameObject whiteRook;

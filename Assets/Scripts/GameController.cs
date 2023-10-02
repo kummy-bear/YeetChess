@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (!CameraSwitcher.chessing) { DeselectPiece(); }
     }
 
     public void SelectPiece(GameObject piece)

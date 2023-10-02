@@ -3371,7 +3371,6 @@ MonoBehaviour:
   WhitePieces: {fileID: 450974749}
   BlackPieces: {fileID: 1620984131}
   SelectedPiece: {fileID: 0}
-  WhiteTurn: 1
 --- !u!4 &541102416
 Transform:
   m_ObjectHideFlags: 0
@@ -5852,9 +5851,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12bafc865b6ea584393edc1fee23b1be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToThrow: {fileID: 1084830076295787680, guid: f7dcee1265e2ebf4888ddfa17ef5404a,
+  throwForce: 100
+  whitePawn: {fileID: 1006356879557798, guid: d5ef496ce67bf1047bea9a6e2d25d025, type: 3}
+  blackPawn: {fileID: 1867195236767680, guid: 73c575cf7d0132d42b2c116aa53c4e72, type: 3}
+  whiteRook: {fileID: 1971375302472462, guid: dfb4b52190f523243be3dcb1eceae955, type: 3}
+  blackRook: {fileID: 1211746330687442, guid: 3c3e80674a930314f842897c059b2da1, type: 3}
+  whiteHorse: {fileID: 1992623236052302, guid: b6ed4b461029c914c86164ad08597ab5, type: 3}
+  blackHorse: {fileID: 1179637952412708, guid: 0a632f3dfa4e66746a47a77dd2aa8c8b, type: 3}
+  whiteBishop: {fileID: 1028868664329696, guid: 8b9c11cf4e948284781fae1c6b6e682a,
     type: 3}
-  throwForce: 1000
+  blackBishop: {fileID: 1672242659374470, guid: 9d417d5685556364088cf25bb425d873,
+    type: 3}
+  whiteQueen: {fileID: 1945632463053948, guid: 1d81905076888c1419aa7451eaf50f16, type: 3}
+  blackQueen: {fileID: 1471985601831630, guid: ef378b1ccab16af4caf8bafdfb6cfffc, type: 3}
+  whiteKing: {fileID: 1389686872840900, guid: aa05f4818c001484082c3fe1d71ca6db, type: 3}
+  blackKing: {fileID: 1810274083847610, guid: cf571255cb4a74a4db7983f4c81e816d, type: 3}
 --- !u!4 &1130896434
 Transform:
   m_ObjectHideFlags: 0
