@@ -68,6 +68,11 @@ public class PieceController : MonoBehaviour
             else
             {
                 GameController.SelectedPiece.GetComponent<PieceController>().MovePiece(this.transform.position);
+                if (this.tag == GameController.SelectedPiece.tag)
+                {
+                    CaptureData.same = true;
+                    CaptureData.SelectedPiece = GameController.SelectedPiece;
+                }
             }
         }
     }
@@ -125,11 +130,6 @@ public class PieceController : MonoBehaviour
                 CaptureData.destroyedByBlack.Add(new Piece(encounteredEnemy.name));
             }
 
-            if (this.tag == GameController.SelectedPiece.tag)
-            {
-                CaptureData.same = true;
-                CaptureData.SelectedPiece = GameController.SelectedPiece;
-            }
             Destroy(encounteredEnemy);
 
             return true;

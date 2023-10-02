@@ -3,10 +3,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class ObjectThrower : MonoBehaviour
 {
-    public GameObject objectToThrow;
     public float throwForce = 10f;
     private Camera arCamera;
-    
+    public GameObject pawn;
 
     private void Start()
     {
@@ -28,14 +27,35 @@ public class ObjectThrower : MonoBehaviour
     {
         if (!CameraSwitcher.chessing)
         {
-            // Create the object clone
-            GameObject objClone = Instantiate(objectToThrow, arCamera.transform.position, arCamera.transform.rotation);
+            if (GameController.WhiteTurn)
+            {
+                if (CaptureData.destroyedByWhite[0].Color == "White")
+                {
+                    if (CaptureData.destroyedByWhite[0].Name == "Pawn")
+                    {
+                        GameObject objectToThrow = 
+                    }
+                }
+                // Create the object clone
+                GameObject objClone = Instantiate(objectToThrow, arCamera.transform.position, arCamera.transform.rotation);
 
-            // Get the rigidbody
-            Rigidbody rb = objClone.GetComponent<Rigidbody>();
+                // Get the rigidbody
+                Rigidbody rb = objClone.GetComponent<Rigidbody>();
 
-            // Apply force to throw the object forward
-            rb.AddForce(arCamera.transform.forward * throwForce, ForceMode.Impulse);
+                // Apply force to throw the object forward
+                rb.AddForce(arCamera.transform.forward * throwForce, ForceMode.Impulse);
+            }
+            else
+            {
+                // Create the object clone
+                GameObject objClone = Instantiate(objectToThrow, arCamera.transform.position, arCamera.transform.rotation);
+
+                // Get the rigidbody
+                Rigidbody rb = objClone.GetComponent<Rigidbody>();
+
+                // Apply force to throw the object forward
+                rb.AddForce(arCamera.transform.forward * throwForce, ForceMode.Impulse);
+            }
         }
         
     }

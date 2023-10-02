@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     public GameObject WhitePieces;
     public GameObject BlackPieces;
     public GameObject SelectedPiece;
-    public bool WhiteTurn = true;
+    public static bool WhiteTurn = true;
 
     // Use this for initialization
     void Start()
