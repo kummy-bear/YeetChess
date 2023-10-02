@@ -61,6 +61,7 @@ public class GameController : MonoBehaviour
         if (CaptureData.same)
         {
             Destroy(CaptureData.SelectedPiece);
+            CaptureData.same = false;
         }
 
         if (WhiteTurn)
