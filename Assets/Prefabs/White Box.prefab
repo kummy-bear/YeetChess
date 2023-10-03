@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4788956712242094}
   - component: {fileID: 212795520955710382}
   - component: {fileID: 61749944212186652}
-  - component: {fileID: 4172080082487296025}
+  - component: {fileID: 5449679783266772688}
   m_Layer: 0
   m_Name: White Cube
   m_TagString: Untagged
@@ -163,7 +163,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4172080082487296025
+--- !u!114 &5449679783266772688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1401518396710064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23eac40c8db09b5468181031a8a9101a, type: 3}
+  m_Script: {fileID: 11500000, guid: 550ccb7700afe47c4ac4d741b1e285fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameController: {fileID: 0}
