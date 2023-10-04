@@ -172,6 +172,7 @@ public class ObjectThrower : MonoBehaviour
             rb.mass = wei;
             // Apply force to throw the object forward
             rb.AddForce(arCamera.transform.forward * throwForce * wei, ForceMode.Impulse);
+            TextController.currentIndex = 0;
         }
         
     }

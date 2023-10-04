@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class TextController : MonoBehaviour
 {
     public Text displayText;
+    public Text left;
+    public Text turn;
     public Button changeTextButton;
     public static int currentIndex = 0;
     public bool flag = true;
@@ -20,14 +22,32 @@ public class TextController : MonoBehaviour
         if (CameraSwitcher.chessing)
         {
             displayText.enabled = false;
+            left.enabled = false;
+            turn.enabled = false;
             changeTextButton.enabled = false;
             changeTextButton.gameObject.SetActive(false);
         }
         else
         {
             displayText.enabled = true;
+            left.enabled = true;
+            turn.enabled = true;
             changeTextButton.enabled = true;
             changeTextButton.gameObject.SetActive(true);
+        }
+        if (!GameController.WhiteTurn)
+        {
+            left.text = currentIndex+1 + "/" + CaptureData.destroyedByBlack.Count.ToString();
+            left.color = Color.black;
+            turn.text = "black";
+            turn.color = Color.black;
+        }
+        else
+        {
+            left.text = currentIndex+1 + "/" + CaptureData.destroyedByWhite.Count.ToString();
+            left.color = Color.white;
+            turn.text = "white";
+            turn.color = Color.white;
         }
         if (!flag)
         {
@@ -45,6 +65,7 @@ public class TextController : MonoBehaviour
             }
             if (!GameController.WhiteTurn)
             {
+                
                 // Increment the index and loop back to the beginning if necessary
                 displayText.text = CaptureData.destroyedByBlack[currentIndex].Name;
                 string col = CaptureData.destroyedByBlack[currentIndex].Color;
@@ -59,6 +80,7 @@ public class TextController : MonoBehaviour
             }
             else
             {
+                
                 displayText.text = CaptureData.destroyedByWhite[currentIndex].Name;
                 string col = CaptureData.destroyedByWhite[currentIndex].Color;
                 if (col == "White")
