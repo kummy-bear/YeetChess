@@ -18,6 +18,7 @@ public class CameraSwitcher : MonoBehaviour
     public void SwitchCameras()
     {
         // Toggle the active state of the cameras.
+
         isCamera1Active = !isCamera1Active;
         camera1.enabled = isCamera1Active;
         camera2.enabled = !isCamera1Active;
