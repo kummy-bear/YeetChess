@@ -8,7 +8,7 @@ public class CollisionDetectionForBlackKing : MonoBehaviour
     {
         if ((collisionLayer & 1 << collision.gameObject.layer) != 0)
         {
-            Debug.Log("Collision detected with an object in the collision layer.");
+            Debug.Log("Black king ded");
         }
     }
 }
