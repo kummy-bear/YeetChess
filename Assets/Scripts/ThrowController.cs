@@ -21,6 +21,7 @@ public class TextController : MonoBehaviour
     public TextMeshProUGUI bKingCount;
     public GameObject wSelBar;
     public GameObject bSelBar;
+    public GameObject cheatButton;
 
 
     public static int currentIndex = 0;
@@ -34,6 +35,7 @@ public class TextController : MonoBehaviour
     {
         if (CameraSwitcher.chessing)
         {
+            cheatButton.SetActive(false);
             wSelBar.SetActive(false);
             bSelBar.SetActive(false);
             displayText.enabled = false;
@@ -41,6 +43,7 @@ public class TextController : MonoBehaviour
         }
         else
         {
+            cheatButton.SetActive(true);
             displayText.enabled = true;
             turn.enabled = true;
             if (GameController.WhiteTurn)
