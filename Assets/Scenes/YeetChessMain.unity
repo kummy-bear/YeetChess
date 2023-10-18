@@ -10032,6 +10032,7 @@ MonoBehaviour:
   bKingCount: {fileID: 1800762697}
   wSelBar: {fileID: 1454177232}
   bSelBar: {fileID: 2109413766}
+  cheatButton: {fileID: 94395141}
   flag: 1
 --- !u!1 &1411416184
 GameObject:
