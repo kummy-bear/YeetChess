@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraSwitcher : MonoBehaviour
@@ -18,10 +19,13 @@ public class CameraSwitcher : MonoBehaviour
     public void SwitchCameras()
     {
         // Toggle the active state of the cameras.
-        TextController.currentIndex = 0;
         isCamera1Active = !isCamera1Active;
         camera1.enabled = isCamera1Active;
         camera2.enabled = !isCamera1Active;
         chessing = !chessing;
+
+        // recount pieces
+
+        pieceCounter.countPieces();
     }
 }

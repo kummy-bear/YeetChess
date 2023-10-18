@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class addpieces : MonoBehaviour
 {
-    List<string> pieceList = new List<string>{"King",
-            "Queen",
-            "Rook",
+    public static List<string> pieceList = new List<string>{"Pawn",
+            "Horse",
             "Bishop",
-            "Knight",
-            "Pawn" };
+            "Rook",
+            "Queen",
+            "King" };
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,7 @@ public class addpieces : MonoBehaviour
 
         }
         Debug.Log("cheats on");
+        pieceCounter.countPieces();
     }
 
 }
