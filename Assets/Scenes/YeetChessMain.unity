@@ -8420,7 +8420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12bafc865b6ea584393edc1fee23b1be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 25
+  throwForce: 40
   whitePawn: {fileID: 1006356879557798, guid: d5ef496ce67bf1047bea9a6e2d25d025, type: 3}
   blackPawn: {fileID: 1867195236767680, guid: 73c575cf7d0132d42b2c116aa53c4e72, type: 3}
   whiteRook: {fileID: 1971375302472462, guid: dfb4b52190f523243be3dcb1eceae955, type: 3}

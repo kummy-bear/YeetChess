@@ -120,6 +120,7 @@ public class ObjectThrower : MonoBehaviour
                                 objectToThrow = blackKing;
                             }
                         }
+                        wei = p.Weight;
                         break;
                     }
                     
@@ -199,6 +200,7 @@ public class ObjectThrower : MonoBehaviour
                                 objectToThrow = blackKing;
                             }
                         }
+                        wei = p.Weight;
                         break;
                     }
                     
