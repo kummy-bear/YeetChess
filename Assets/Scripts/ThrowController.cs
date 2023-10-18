@@ -97,49 +97,51 @@ public class TextController : MonoBehaviour
 
     void ChangeText()
     {
-        flag = false;
-        // Initialize the text with the first item from the list
-        if (GameController.WhiteTurn && CaptureData.destroyedByWhite.Count == 0)
-        {
-            displayText.text = "no pieces";
-            displayText.color = Color.white;
-            return;
-        }
-        else if (!GameController.WhiteTurn && CaptureData.destroyedByBlack.Count == 0)
-        {
-            displayText.text = "no pieces";
-            displayText.color = Color.black;
-            return;
-        }
-
         // Update the text
         if (!GameController.WhiteTurn)
         {
-            // Increment the index and loop back to the beginning if necessary
-            currentIndex = (currentIndex + 1) % CaptureData.destroyedByBlack.Count;
-            displayText.text = CaptureData.destroyedByBlack[currentIndex].Name;
-            string col = CaptureData.destroyedByBlack[currentIndex].Color;
-            if (col == "White")
+            if (CaptureData.destroyedByBlack.Count > 0)
             {
-                displayText.color = Color.white;
+                // Increment the index and loop back to the beginning if necessary
+                currentIndex = (currentIndex + 1) % CaptureData.destroyedByBlack.Count;
+                displayText.text = CaptureData.destroyedByBlack[currentIndex].Name;
+                string col = CaptureData.destroyedByBlack[currentIndex].Color;
+                if (col == "White")
+                {
+                    displayText.color = Color.white;
+                }
+                else
+                {
+                    displayText.color = Color.black;
+                }
+
             }
             else
             {
+                displayText.text = "empty";
                 displayText.color = Color.black;
             }
         }
         else
         {
-            currentIndex = (currentIndex + 1) % CaptureData.destroyedByWhite.Count;
-            displayText.text = CaptureData.destroyedByWhite[currentIndex].Name;
-            string col = CaptureData.destroyedByWhite[currentIndex].Color;
-            if (col == "White")
+            if (CaptureData.destroyedByWhite.Count > 0)
             {
-                displayText.color = Color.white;
+                currentIndex = (currentIndex + 1) % CaptureData.destroyedByWhite.Count;
+                displayText.text = CaptureData.destroyedByWhite[currentIndex].Name;
+                string col = CaptureData.destroyedByWhite[currentIndex].Color;
+                if (col == "White")
+                {
+                    displayText.color = Color.white;
+                }
+                else
+                {
+                    displayText.color = Color.black;
+                }
             }
             else
             {
-                displayText.color = Color.black;
+                displayText.text = "empty";
+                displayText.color = Color.white;
             }
         }
 

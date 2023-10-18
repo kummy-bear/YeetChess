@@ -104,7 +104,7 @@ public class ObjectThrower : MonoBehaviour
                 }
                 CaptureData.destroyedByWhite.RemoveAt(i);
             }
-            else if (!GameController.WhiteTurn &&CaptureData.destroyedByBlack.Count > 0)
+            else if (!GameController.WhiteTurn && CaptureData.destroyedByBlack.Count > 0)
             {
                 wei = CaptureData.destroyedByWhite[i].Weight;
                 if (CaptureData.destroyedByBlack[i].Color == "White")
@@ -162,6 +162,11 @@ public class ObjectThrower : MonoBehaviour
                     }
                 }
                 CaptureData.destroyedByBlack.RemoveAt(i);
+            }
+            else
+            {
+                Debug.Log("no pieces?");
+                return;
             }
             // Create the object clone
             GameObject objClone = Instantiate(objectToThrow, arCamera.transform.position, arCamera.transform.rotation);
