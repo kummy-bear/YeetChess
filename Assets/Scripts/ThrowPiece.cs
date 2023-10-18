@@ -19,8 +19,9 @@ public class ObjectThrower : MonoBehaviour
     public GameObject blackKing;
     public GameObject empty;
 
-    private int i = TextController.currentIndex;
 
+
+    int d = -1;
     private void Start()
     {
         arCamera = Camera.main; // Get the AR camera
@@ -30,138 +31,180 @@ public class ObjectThrower : MonoBehaviour
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            if (!IsPointerOverUIObject())
+            if (!IsPointerOverUIObject() && ButtonNumberAssignment.buttFlag)
             {
                 ThrowObject();
             }
         }
-        i = TextController.currentIndex;
+        
     }
 
     private void ThrowObject()
     {
+        ButtonNumberAssignment.buttFlag = false;
         if (!CameraSwitcher.chessing)
         {
             int wei = 1;
+            d = -1;
             GameObject objectToThrow = empty;
             if (GameController.WhiteTurn && CaptureData.destroyedByWhite.Count > 0)
             {
-                wei = CaptureData.destroyedByWhite[i].Weight;
-                if (CaptureData.destroyedByWhite[i].Color == "White")
+                foreach (Piece p in CaptureData.destroyedByWhite)
                 {
-                    if (CaptureData.destroyedByWhite[i].Name == "Pawn")
+                    d++;
+                    if (p.Name == addpieces.pieceList[TextController.currentIndex])
                     {
-                        objectToThrow = whitePawn;
-                        
+                        if(p.Name == "Pawn")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whitePawn;
+                            }
+                            else
+                            {
+                                objectToThrow = blackPawn;
+                            }
+                        }
+                        if (p.Name == "Horse")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whiteHorse;
+                            }
+                            else
+                            {
+                                objectToThrow = blackHorse;
+                            }
+                        }
+                        if (p.Name == "Bishop")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whiteBishop;
+                            }
+                            else
+                            {
+                                objectToThrow = blackBishop;
+                            }
+                        }
+                        if (p.Name == "Rook")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whiteRook;
+                            }
+                            else
+                            {
+                                objectToThrow = blackRook;
+                            }
+                        }
+                        if (p.Name == "Queen")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whiteQueen;
+                            }
+                            else
+                            {
+                                objectToThrow = blackQueen;
+                            }
+                        }
+                        if (p.Name == "King")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whiteKing;
+                            }
+                            else
+                            {
+                                objectToThrow = blackKing;
+                            }
+                        }
+                        break;
                     }
-                    if (CaptureData.destroyedByWhite[i].Name == "Rook")
-                    {
-                        objectToThrow = whiteRook;
-                    }
-                    if (CaptureData.destroyedByWhite[i].Name == "Horse")
-                    {
-                        objectToThrow = whiteHorse;
-                    }
-                    if (CaptureData.destroyedByWhite[i].Name == "Bishop")
-                    {
-                        objectToThrow = whiteBishop;
-                    }
-                    if (CaptureData.destroyedByWhite[i].Name == "Queen")
-                    {
-                        objectToThrow = whiteQueen;
-                    }
-                    if (CaptureData.destroyedByWhite[i].Name == "King")
-                    {
-                        objectToThrow = whiteKing;
-                    }
+                    
                 }
-                if (CaptureData.destroyedByWhite[i].Color == "Black")
-                {
-                    if (CaptureData.destroyedByWhite[i].Name == "Pawn")
-                    {
-                        objectToThrow = blackPawn;
-                    }
-                    if (CaptureData.destroyedByWhite[i].Name == "Rook")
-                    {
-                        objectToThrow = blackRook;
-                    }
-                    if (CaptureData.destroyedByWhite[i].Name == "Horse")
-                    {
-                        objectToThrow = blackHorse;
-                    }
-                    if (CaptureData.destroyedByWhite[i].Name == "Bishop")
-                    {
-                        objectToThrow = blackBishop;
-                    }
-                    if (CaptureData.destroyedByWhite[i].Name == "Queen")
-                    {
-                        objectToThrow = blackQueen;
-                    }
-                    if (CaptureData.destroyedByWhite[i].Name == "King")
-                    {
-                        objectToThrow = blackKing;
-                    }
-                }
-                CaptureData.destroyedByWhite.RemoveAt(i);
+                CaptureData.destroyedByWhite.RemoveAt(d);
             }
             else if (!GameController.WhiteTurn && CaptureData.destroyedByBlack.Count > 0)
             {
-                wei = CaptureData.destroyedByWhite[i].Weight;
-                if (CaptureData.destroyedByBlack[i].Color == "White")
+                foreach (Piece p in CaptureData.destroyedByBlack)
                 {
-                    if (CaptureData.destroyedByBlack[i].Name == "Pawn")
+                    d++;
+                    if (p.Name == addpieces.pieceList[TextController.currentIndex])
                     {
-                        objectToThrow = whitePawn;
+                        if (p.Name == "Pawn")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whitePawn;
+                            }
+                            else
+                            {
+                                objectToThrow = blackPawn;
+                            }
+                        }
+                        if (p.Name == "Horse")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whiteHorse;
+                            }
+                            else
+                            {
+                                objectToThrow = blackHorse;
+                            }
+                        }
+                        if (p.Name == "Bishop")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whiteBishop;
+                            }
+                            else
+                            {
+                                objectToThrow = blackBishop;
+                            }
+                        }
+                        if (p.Name == "Rook")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whiteRook;
+                            }
+                            else
+                            {
+                                objectToThrow = blackRook;
+                            }
+                        }
+                        if (p.Name == "Queen")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whiteQueen;
+                            }
+                            else
+                            {
+                                objectToThrow = blackQueen;
+                            }
+                        }
+                        if (p.Name == "King")
+                        {
+                            if (p.Color == "White")
+                            {
+                                objectToThrow = whiteKing;
+                            }
+                            else
+                            {
+                                objectToThrow = blackKing;
+                            }
+                        }
+                        break;
                     }
-                    if (CaptureData.destroyedByBlack[i].Name == "Rook")
-                    {
-                        objectToThrow = whiteRook;
-                    }
-                    if (CaptureData.destroyedByBlack[i].Name == "Horse")
-                    {
-                        objectToThrow = whiteHorse;
-                    }
-                    if (CaptureData.destroyedByBlack[i].Name == "Bishop")
-                    {
-                        objectToThrow = whiteBishop;
-                    }
-                    if (CaptureData.destroyedByBlack[i].Name == "Queen")
-                    {
-                        objectToThrow = whiteQueen;
-                    }
-                    if (CaptureData.destroyedByBlack[i].Name == "King")
-                    {
-                        objectToThrow = whiteKing;
-                    }
+                    
+                    
                 }
-                if (CaptureData.destroyedByBlack[i].Color == "Black")
-                {
-                    if (CaptureData.destroyedByBlack[i].Name == "Pawn")
-                    {
-                        objectToThrow = blackPawn;
-                    }
-                    if (CaptureData.destroyedByBlack[i].Name == "Rook")
-                    {
-                        objectToThrow = blackRook;
-                    }
-                    if (CaptureData.destroyedByBlack[i].Name == "Horse")
-                    {
-                        objectToThrow = blackHorse;
-                    }
-                    if (CaptureData.destroyedByBlack[i].Name == "Bishop")
-                    {
-                        objectToThrow = blackBishop;
-                    }
-                    if (CaptureData.destroyedByBlack[i].Name == "Queen")
-                    {
-                        objectToThrow = blackQueen;
-                    }
-                    if (CaptureData.destroyedByBlack[i].Name == "King")
-                    {
-                        objectToThrow = blackKing;
-                    }
-                }
-                CaptureData.destroyedByBlack.RemoveAt(i);
+                CaptureData.destroyedByBlack.RemoveAt(d);
             }
             else
             {
@@ -169,15 +212,21 @@ public class ObjectThrower : MonoBehaviour
                 return;
             }
             // Create the object clone
+            if (objectToThrow == empty)
+            {
+                return;
+            }
             GameObject objClone = Instantiate(objectToThrow, arCamera.transform.position, arCamera.transform.rotation);
             objClone.AddComponent<BoxCollider>();
+            objClone.tag = "Throw";
             // Get the rigidbody
             Rigidbody rb = objClone.AddComponent<Rigidbody>();
             rb.useGravity = true;
             rb.mass = wei;
             // Apply force to throw the object forward
             rb.AddForce(arCamera.transform.forward * throwForce * wei, ForceMode.Impulse);
-            TextController.currentIndex = 0;
+            pieceCounter.countPieces();
+            
         }
         
     }
@@ -193,4 +242,6 @@ public class ObjectThrower : MonoBehaviour
 
         return results.Count > 0;
     }
+
+
 }
