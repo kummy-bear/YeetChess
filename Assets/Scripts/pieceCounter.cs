@@ -77,19 +77,5 @@ public class pieceCounter : MonoBehaviour
             }
         }
     }
-
-    public static void resetPiece()
-    {
-         CaptureData.destroyedByWhite.Clear();
-         CaptureData.destroyedByBlack.Clear();
-         for (int i = 0; i < pieceCounter.bArray.Length; i++)
-            {
-                pieceCounter.bArray[i] = 0;
-            }
-         for (int i = 0; i < pieceCounter.wArray.Length; i++)
-            {
-                pieceCounter.wArray[i] = 0;
-            }
-    }
 }
 
