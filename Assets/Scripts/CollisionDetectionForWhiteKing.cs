@@ -6,7 +6,7 @@ public class CollisionDetectionForWhiteKing : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if ((collisionLayer & 1 << collision.gameObject.layer) != 0)
+        if (collision.gameObject.CompareTag("Throw"))
         {
             Debug.Log("White king ded");
         }
