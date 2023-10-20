@@ -54,8 +54,6 @@ public class GameController : MonoBehaviour
 
     public void EndTurn()
     {
-        bool hasValidMoves = true;
-
         WhiteTurn = !WhiteTurn;
 
         if (CaptureData.same)

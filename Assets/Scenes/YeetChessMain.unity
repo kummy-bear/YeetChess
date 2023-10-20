@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KingDark
       objectReference: {fileID: 0}
+    - target: {fileID: 1810274083847610, guid: cf571255cb4a74a4db7983f4c81e816d, type: 3}
+      propertyPath: m_TagString
+      value: Throw
+      objectReference: {fileID: 0}
     - target: {fileID: 4200693306526636, guid: cf571255cb4a74a4db7983f4c81e816d, type: 3}
       propertyPath: m_LocalScale.x
       value: 200
@@ -362,6 +366,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1768715104}
+    - targetCorrespondingSourceObject: {fileID: 1810274083847610, guid: cf571255cb4a74a4db7983f4c81e816d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1768715108}
   m_SourcePrefab: {fileID: 100100000, guid: cf571255cb4a74a4db7983f4c81e816d, type: 3}
 --- !u!1 &47766535
 GameObject:
@@ -2875,6 +2883,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4175726406976504967, guid: 35edfbe52d47d2643a1608b4607abd1b, type: 3}
+--- !u!114 &378283242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378283234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84b4f8d2b9574d6da4b8f7959b44b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &386559988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7774,6 +7797,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KingLight
       objectReference: {fileID: 0}
+    - target: {fileID: 1389686872840900, guid: aa05f4818c001484082c3fe1d71ca6db, type: 3}
+      propertyPath: m_TagString
+      value: Throw
+      objectReference: {fileID: 0}
     - target: {fileID: 4239372230150158, guid: aa05f4818c001484082c3fe1d71ca6db, type: 3}
       propertyPath: m_LocalScale.x
       value: 200
@@ -7834,6 +7861,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 378283238}
+    - targetCorrespondingSourceObject: {fileID: 1389686872840900, guid: aa05f4818c001484082c3fe1d71ca6db,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 378283242}
   m_SourcePrefab: {fileID: 100100000, guid: aa05f4818c001484082c3fe1d71ca6db, type: 3}
 --- !u!1 &1066671609
 GameObject:
@@ -13678,6 +13709,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4175726406976504967, guid: 35edfbe52d47d2643a1608b4607abd1b, type: 3}
+--- !u!114 &1768715108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768715100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbbdd8b8bdab4946a5ed3019fef38b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &1773968960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5453264285091895259, guid: 87ea38c41a8c23e4190ab9e2edef349f,
