@@ -19,6 +19,7 @@ public class contro_center : MonoBehaviour
 
     public void ResetScene()
     {
+        CameraSwitcher.chessing = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         pieceCounter.resetPiece();
         print("reset");
